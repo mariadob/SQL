@@ -1,0 +1,34 @@
+--Create a design store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, apparel TEXT, price INTEGER, aisle INTEGER, material TEXT);
+
+INSERT INTO store VALUES (1, "t_shirt", 5, 3, "cotton");
+INSERT INTO store VALUES (2, "sweater", 15, 4, "cotton");
+INSERT INTO store VALUES (3, "jeans", 30, 1, "denim");
+INSERT INTO store VALUES (4, "jacket", 40, 2, "leather");
+INSERT INTO store VALUES (5, "socks", 5, 6, "cotton");
+INSERT INTO store VALUES (6, "hoodie", 15, 4, "cotton");
+INSERT INTO store VALUES (7, "pants", 30, 1, "cashmere");
+INSERT INTO store VALUES (8, "scarf", 10, 7, "cashmere");
+INSERT INTO store VALUES (9, "shorts", 15, 9, "cotton");
+INSERT INTO store VALUES (10, "leggings", 25, 11, "cotton");
+INSERT INTO store VALUES (11, "vest", 30, 8, "fur");
+INSERT INTO store VALUES (12, "overalls", 30, 6, "denim");
+INSERT INTO store VALUES (13, "dress", 20, 8, "silk");
+INSERT INTO store VALUES (14, "skirt", 20, 8, "cotton");
+INSERT INTO store VALUES (15, "sweatpants", 25, 9, "cotton");
+
+--display the database ordered by price
+SELECT * FROM store
+ORDER BY price asc;
+
+--what is the avg price of material items made of cotton?
+SELECT AVG(price) "avg cotton material price"
+FROM store
+where material='cotton'
+
+--what are the top 5 most expensive pieces of clothing?
+SELECT material, price, apparel
+FROM store
+order by price desc
+limit 5;
